@@ -1,0 +1,735 @@
+{
+	"info": {
+		"_postman_id": "b01e874e-730d-4c47-91ee-d95ecb6d3783",
+		"name": "laravel-passport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Article",
+			"item": [
+				{
+					"name": "Create Article",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('status code should be 200', () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGQ5YTA4NDI4Yjc3ZmQ2OThjZDlhZDljNGVmZDcxMDhjYzYxOTU0ZDcxNjk4OTRhYTU5MGU4OTdkMTkxZWI1ZmQyOTYwYWI2Y2Y3NjE3YmMiLCJpYXQiOjE2NDc1Nzg4OTAuNjg4MzgxLCJuYmYiOjE2NDc1Nzg4OTAuNjg4Mzg3LCJleHAiOjE2NzkxMTQ4OTAuNTgxOTYsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.i1MR0ZvX28hvN_10hMTvB2CTh-O2URFN0DViks3pVCPHd--uqLsoZJb02b3E4lqvUUlqABGOqeHUOmRLovSK2VPtibPy0kuOotI7XDeFH2qZ0Qc1K1s6UOWxsdFlRGGlT6dpgjADfnjq_TRuL2OU1my8WTlwEK12S-YvmgRvUY7NCeaycTHAfsjGCECRdPexYjlDKclK6ahX7-w93g5KqblrvoqzorOWPOsx-wnjBDVOvM2b7xmjeBf9hZmL2GaN6SeCoi9yVrrPHb8wWztWwtDxyabOo-EH6YfFAkWLot5jvefLcB-XHvAVXmkqVxHkAMxV825SOSV3IG6ozL8EPZVjxxoERas5Ntb3xLhgveeFGXxfUifJ--y0g_DPEdKz_Ajvv8wNKU3PTfNYHEPKf3pQ6doJZNBUFy0V2JTLKh-iDEmPEiVU2N9tXQhxPSIjVokFtrv9DjiGkvfNidUjMIOh_RLgUJ4r6xBL3De4caMrTC9Pd8xCaaFiRGZCeyRDDq2k2Ov9IS_z-qLnl2s5ObkgDtIYceEAb8WhmJ5jOGb02kkmbq1dJYecuC1MjedaEnxRhJyR_lGsL_DRh-ym-4PoTzCpUokpXYVLaTWnFLRP1aDnZiJEfJnKLDtxy6rluyrUmAZlrg0aTDXy1zsrpbV24SJMp3O-P7qm2UjjaF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Buku Wajib Dibaca",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "asdahsdgagwgdahgwhjdgahgdjhgawjgdygwwwvhjavahvsdhavjsdhajs",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/faqih/Pictures/8.png"
+								},
+								{
+									"key": "user_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/article",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGQ5YTA4NDI4Yjc3ZmQ2OThjZDlhZDljNGVmZDcxMDhjYzYxOTU0ZDcxNjk4OTRhYTU5MGU4OTdkMTkxZWI1ZmQyOTYwYWI2Y2Y3NjE3YmMiLCJpYXQiOjE2NDc1Nzg4OTAuNjg4MzgxLCJuYmYiOjE2NDc1Nzg4OTAuNjg4Mzg3LCJleHAiOjE2NzkxMTQ4OTAuNTgxOTYsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.i1MR0ZvX28hvN_10hMTvB2CTh-O2URFN0DViks3pVCPHd--uqLsoZJb02b3E4lqvUUlqABGOqeHUOmRLovSK2VPtibPy0kuOotI7XDeFH2qZ0Qc1K1s6UOWxsdFlRGGlT6dpgjADfnjq_TRuL2OU1my8WTlwEK12S-YvmgRvUY7NCeaycTHAfsjGCECRdPexYjlDKclK6ahX7-w93g5KqblrvoqzorOWPOsx-wnjBDVOvM2b7xmjeBf9hZmL2GaN6SeCoi9yVrrPHb8wWztWwtDxyabOo-EH6YfFAkWLot5jvefLcB-XHvAVXmkqVxHkAMxV825SOSV3IG6ozL8EPZVjxxoERas5Ntb3xLhgveeFGXxfUifJ--y0g_DPEdKz_Ajvv8wNKU3PTfNYHEPKf3pQ6doJZNBUFy0V2JTLKh-iDEmPEiVU2N9tXQhxPSIjVokFtrv9DjiGkvfNidUjMIOh_RLgUJ4r6xBL3De4caMrTC9Pd8xCaaFiRGZCeyRDDq2k2Ov9IS_z-qLnl2s5ObkgDtIYceEAb8WhmJ5jOGb02kkmbq1dJYecuC1MjedaEnxRhJyR_lGsL_DRh-ym-4PoTzCpUokpXYVLaTWnFLRP1aDnZiJEfJnKLDtxy6rluyrUmAZlrg0aTDXy1zsrpbV24SJMp3O-P7qm2UjjaF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Buku Wajib Dibaca V2",
+									"type": "text"
+								},
+								{
+									"key": "content",
+									"value": "asdahsdgagwgdahgwhjdgahgdjhgawjgdygwwwvhjavahvsdhavjsdhajs",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/faqih/Pictures/8.png"
+								},
+								{
+									"key": "user_id",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "category_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/article/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Article",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODQ5NzdmOTkxZTZkMzM2MmRjNWRiYjhkYTJjMDQ5OGUyODQ2OGMyZmM4NWFhZDVmMGZjMzg0YmU2MDRlY2UyMjk4YWY0YjUyZjdkMDk5ODQiLCJpYXQiOjE2NDc1ODg1NzEuMjg2NDQ3LCJuYmYiOjE2NDc1ODg1NzEuMjg2NDc1LCJleHAiOjE2NzkxMjQ1NzEuMTgwMzg5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.l4pUMV4z6U2dydtJcJsP7k29Ttn-fW5inmuXHe1yt4tzf7kG43aQbSvClGuWJW6GTMj5bfv0IGSAJMcpmFYf27W9Pf54qzLzZ1hZ8sTCKG1wQpZdHDtXf7t1y22Txd6C7BU9aZnOiHsPBEHIC6CrjJgyNmWYSojGXL54NZbD8ax29uggJAIo6NFsYrcVExyR46gLBTuFlHZRj8V9EpVFeYPHy6ghpbkz8x-LOd8EUVS9H2416hZkiFcU2WnCbTGKQlAbY6wvNmqEAZLpcvOKBwfrMtJbYei0gLUOnJG-nRYjs4oOX5SAaW123i2iFETglnUStXjLe6dJ77D-mXyt-4tjPMkF6EPoWaI-t6EyN0LwMPED7vykKT8aUGChxgk8bgu_4EP8XReizEX7jMSru8tbfQcegstiqnZnAAAcObLT_aX2h4rLLt1xHJMLsNgvOkbsfbQZif1UZA2IVtDzRRPrXW8JQKLSpUEeIq9zp2fNvkNohy4zFq4i5I9EZPomLP7wRhAAa0BafFEMEmf4-OsgPNQQxTSyLm2PgIcyFc4KwFXd2kmH_8iKSIQG5VRl-5wsIGsIpnnu5jBxCbxVNP0aEDhk2uQSJcnFZCIdsEqey1Fj1KMP3V0BkdPQsEu32ioSL2zNDGrnwox9CvoYB_cV77LrhgZAsbfc2g52vnQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/article",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"article"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Article",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGQ5YTA4NDI4Yjc3ZmQ2OThjZDlhZDljNGVmZDcxMDhjYzYxOTU0ZDcxNjk4OTRhYTU5MGU4OTdkMTkxZWI1ZmQyOTYwYWI2Y2Y3NjE3YmMiLCJpYXQiOjE2NDc1Nzg4OTAuNjg4MzgxLCJuYmYiOjE2NDc1Nzg4OTAuNjg4Mzg3LCJleHAiOjE2NzkxMTQ4OTAuNTgxOTYsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.i1MR0ZvX28hvN_10hMTvB2CTh-O2URFN0DViks3pVCPHd--uqLsoZJb02b3E4lqvUUlqABGOqeHUOmRLovSK2VPtibPy0kuOotI7XDeFH2qZ0Qc1K1s6UOWxsdFlRGGlT6dpgjADfnjq_TRuL2OU1my8WTlwEK12S-YvmgRvUY7NCeaycTHAfsjGCECRdPexYjlDKclK6ahX7-w93g5KqblrvoqzorOWPOsx-wnjBDVOvM2b7xmjeBf9hZmL2GaN6SeCoi9yVrrPHb8wWztWwtDxyabOo-EH6YfFAkWLot5jvefLcB-XHvAVXmkqVxHkAMxV825SOSV3IG6ozL8EPZVjxxoERas5Ntb3xLhgveeFGXxfUifJ--y0g_DPEdKz_Ajvv8wNKU3PTfNYHEPKf3pQ6doJZNBUFy0V2JTLKh-iDEmPEiVU2N9tXQhxPSIjVokFtrv9DjiGkvfNidUjMIOh_RLgUJ4r6xBL3De4caMrTC9Pd8xCaaFiRGZCeyRDDq2k2Ov9IS_z-qLnl2s5ObkgDtIYceEAb8WhmJ5jOGb02kkmbq1dJYecuC1MjedaEnxRhJyR_lGsL_DRh-ym-4PoTzCpUokpXYVLaTWnFLRP1aDnZiJEfJnKLDtxy6rluyrUmAZlrg0aTDXy1zsrpbV24SJMp3O-P7qm2UjjaF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/article/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Article",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGQ5YTA4NDI4Yjc3ZmQ2OThjZDlhZDljNGVmZDcxMDhjYzYxOTU0ZDcxNjk4OTRhYTU5MGU4OTdkMTkxZWI1ZmQyOTYwYWI2Y2Y3NjE3YmMiLCJpYXQiOjE2NDc1Nzg4OTAuNjg4MzgxLCJuYmYiOjE2NDc1Nzg4OTAuNjg4Mzg3LCJleHAiOjE2NzkxMTQ4OTAuNTgxOTYsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.i1MR0ZvX28hvN_10hMTvB2CTh-O2URFN0DViks3pVCPHd--uqLsoZJb02b3E4lqvUUlqABGOqeHUOmRLovSK2VPtibPy0kuOotI7XDeFH2qZ0Qc1K1s6UOWxsdFlRGGlT6dpgjADfnjq_TRuL2OU1my8WTlwEK12S-YvmgRvUY7NCeaycTHAfsjGCECRdPexYjlDKclK6ahX7-w93g5KqblrvoqzorOWPOsx-wnjBDVOvM2b7xmjeBf9hZmL2GaN6SeCoi9yVrrPHb8wWztWwtDxyabOo-EH6YfFAkWLot5jvefLcB-XHvAVXmkqVxHkAMxV825SOSV3IG6ozL8EPZVjxxoERas5Ntb3xLhgveeFGXxfUifJ--y0g_DPEdKz_Ajvv8wNKU3PTfNYHEPKf3pQ6doJZNBUFy0V2JTLKh-iDEmPEiVU2N9tXQhxPSIjVokFtrv9DjiGkvfNidUjMIOh_RLgUJ4r6xBL3De4caMrTC9Pd8xCaaFiRGZCeyRDDq2k2Ov9IS_z-qLnl2s5ObkgDtIYceEAb8WhmJ5jOGb02kkmbq1dJYecuC1MjedaEnxRhJyR_lGsL_DRh-ym-4PoTzCpUokpXYVLaTWnFLRP1aDnZiJEfJnKLDtxy6rluyrUmAZlrg0aTDXy1zsrpbV24SJMp3O-P7qm2UjjaF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/article/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGQ5YTA4NDI4Yjc3ZmQ2OThjZDlhZDljNGVmZDcxMDhjYzYxOTU0ZDcxNjk4OTRhYTU5MGU4OTdkMTkxZWI1ZmQyOTYwYWI2Y2Y3NjE3YmMiLCJpYXQiOjE2NDc1Nzg4OTAuNjg4MzgxLCJuYmYiOjE2NDc1Nzg4OTAuNjg4Mzg3LCJleHAiOjE2NzkxMTQ4OTAuNTgxOTYsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.i1MR0ZvX28hvN_10hMTvB2CTh-O2URFN0DViks3pVCPHd--uqLsoZJb02b3E4lqvUUlqABGOqeHUOmRLovSK2VPtibPy0kuOotI7XDeFH2qZ0Qc1K1s6UOWxsdFlRGGlT6dpgjADfnjq_TRuL2OU1my8WTlwEK12S-YvmgRvUY7NCeaycTHAfsjGCECRdPexYjlDKclK6ahX7-w93g5KqblrvoqzorOWPOsx-wnjBDVOvM2b7xmjeBf9hZmL2GaN6SeCoi9yVrrPHb8wWztWwtDxyabOo-EH6YfFAkWLot5jvefLcB-XHvAVXmkqVxHkAMxV825SOSV3IG6ozL8EPZVjxxoERas5Ntb3xLhgveeFGXxfUifJ--y0g_DPEdKz_Ajvv8wNKU3PTfNYHEPKf3pQ6doJZNBUFy0V2JTLKh-iDEmPEiVU2N9tXQhxPSIjVokFtrv9DjiGkvfNidUjMIOh_RLgUJ4r6xBL3De4caMrTC9Pd8xCaaFiRGZCeyRDDq2k2Ov9IS_z-qLnl2s5ObkgDtIYceEAb8WhmJ5jOGb02kkmbq1dJYecuC1MjedaEnxRhJyR_lGsL_DRh-ym-4PoTzCpUokpXYVLaTWnFLRP1aDnZiJEfJnKLDtxy6rluyrUmAZlrg0aTDXy1zsrpbV24SJMp3O-P7qm2UjjaF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Self improvment",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGQ5YTA4NDI4Yjc3ZmQ2OThjZDlhZDljNGVmZDcxMDhjYzYxOTU0ZDcxNjk4OTRhYTU5MGU4OTdkMTkxZWI1ZmQyOTYwYWI2Y2Y3NjE3YmMiLCJpYXQiOjE2NDc1Nzg4OTAuNjg4MzgxLCJuYmYiOjE2NDc1Nzg4OTAuNjg4Mzg3LCJleHAiOjE2NzkxMTQ4OTAuNTgxOTYsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.i1MR0ZvX28hvN_10hMTvB2CTh-O2URFN0DViks3pVCPHd--uqLsoZJb02b3E4lqvUUlqABGOqeHUOmRLovSK2VPtibPy0kuOotI7XDeFH2qZ0Qc1K1s6UOWxsdFlRGGlT6dpgjADfnjq_TRuL2OU1my8WTlwEK12S-YvmgRvUY7NCeaycTHAfsjGCECRdPexYjlDKclK6ahX7-w93g5KqblrvoqzorOWPOsx-wnjBDVOvM2b7xmjeBf9hZmL2GaN6SeCoi9yVrrPHb8wWztWwtDxyabOo-EH6YfFAkWLot5jvefLcB-XHvAVXmkqVxHkAMxV825SOSV3IG6ozL8EPZVjxxoERas5Ntb3xLhgveeFGXxfUifJ--y0g_DPEdKz_Ajvv8wNKU3PTfNYHEPKf3pQ6doJZNBUFy0V2JTLKh-iDEmPEiVU2N9tXQhxPSIjVokFtrv9DjiGkvfNidUjMIOh_RLgUJ4r6xBL3De4caMrTC9Pd8xCaaFiRGZCeyRDDq2k2Ov9IS_z-qLnl2s5ObkgDtIYceEAb8WhmJ5jOGb02kkmbq1dJYecuC1MjedaEnxRhJyR_lGsL_DRh-ym-4PoTzCpUokpXYVLaTWnFLRP1aDnZiJEfJnKLDtxy6rluyrUmAZlrg0aTDXy1zsrpbV24SJMp3O-P7qm2UjjaF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "name",
+									"value": "Technology",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/category/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiODQ5NzdmOTkxZTZkMzM2MmRjNWRiYjhkYTJjMDQ5OGUyODQ2OGMyZmM4NWFhZDVmMGZjMzg0YmU2MDRlY2UyMjk4YWY0YjUyZjdkMDk5ODQiLCJpYXQiOjE2NDc1ODg1NzEuMjg2NDQ3LCJuYmYiOjE2NDc1ODg1NzEuMjg2NDc1LCJleHAiOjE2NzkxMjQ1NzEuMTgwMzg5LCJzdWIiOiIyIiwic2NvcGVzIjpbXX0.l4pUMV4z6U2dydtJcJsP7k29Ttn-fW5inmuXHe1yt4tzf7kG43aQbSvClGuWJW6GTMj5bfv0IGSAJMcpmFYf27W9Pf54qzLzZ1hZ8sTCKG1wQpZdHDtXf7t1y22Txd6C7BU9aZnOiHsPBEHIC6CrjJgyNmWYSojGXL54NZbD8ax29uggJAIo6NFsYrcVExyR46gLBTuFlHZRj8V9EpVFeYPHy6ghpbkz8x-LOd8EUVS9H2416hZkiFcU2WnCbTGKQlAbY6wvNmqEAZLpcvOKBwfrMtJbYei0gLUOnJG-nRYjs4oOX5SAaW123i2iFETglnUStXjLe6dJ77D-mXyt-4tjPMkF6EPoWaI-t6EyN0LwMPED7vykKT8aUGChxgk8bgu_4EP8XReizEX7jMSru8tbfQcegstiqnZnAAAcObLT_aX2h4rLLt1xHJMLsNgvOkbsfbQZif1UZA2IVtDzRRPrXW8JQKLSpUEeIq9zp2fNvkNohy4zFq4i5I9EZPomLP7wRhAAa0BafFEMEmf4-OsgPNQQxTSyLm2PgIcyFc4KwFXd2kmH_8iKSIQG5VRl-5wsIGsIpnnu5jBxCbxVNP0aEDhk2uQSJcnFZCIdsEqey1Fj1KMP3V0BkdPQsEu32ioSL2zNDGrnwox9CvoYB_cV77LrhgZAsbfc2g52vnQ",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detail Category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGQ5YTA4NDI4Yjc3ZmQ2OThjZDlhZDljNGVmZDcxMDhjYzYxOTU0ZDcxNjk4OTRhYTU5MGU4OTdkMTkxZWI1ZmQyOTYwYWI2Y2Y3NjE3YmMiLCJpYXQiOjE2NDc1Nzg4OTAuNjg4MzgxLCJuYmYiOjE2NDc1Nzg4OTAuNjg4Mzg3LCJleHAiOjE2NzkxMTQ4OTAuNTgxOTYsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.i1MR0ZvX28hvN_10hMTvB2CTh-O2URFN0DViks3pVCPHd--uqLsoZJb02b3E4lqvUUlqABGOqeHUOmRLovSK2VPtibPy0kuOotI7XDeFH2qZ0Qc1K1s6UOWxsdFlRGGlT6dpgjADfnjq_TRuL2OU1my8WTlwEK12S-YvmgRvUY7NCeaycTHAfsjGCECRdPexYjlDKclK6ahX7-w93g5KqblrvoqzorOWPOsx-wnjBDVOvM2b7xmjeBf9hZmL2GaN6SeCoi9yVrrPHb8wWztWwtDxyabOo-EH6YfFAkWLot5jvefLcB-XHvAVXmkqVxHkAMxV825SOSV3IG6ozL8EPZVjxxoERas5Ntb3xLhgveeFGXxfUifJ--y0g_DPEdKz_Ajvv8wNKU3PTfNYHEPKf3pQ6doJZNBUFy0V2JTLKh-iDEmPEiVU2N9tXQhxPSIjVokFtrv9DjiGkvfNidUjMIOh_RLgUJ4r6xBL3De4caMrTC9Pd8xCaaFiRGZCeyRDDq2k2Ov9IS_z-qLnl2s5ObkgDtIYceEAb8WhmJ5jOGb02kkmbq1dJYecuC1MjedaEnxRhJyR_lGsL_DRh-ym-4PoTzCpUokpXYVLaTWnFLRP1aDnZiJEfJnKLDtxy6rluyrUmAZlrg0aTDXy1zsrpbV24SJMp3O-P7qm2UjjaF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/category/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"category",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGQ5YTA4NDI4Yjc3ZmQ2OThjZDlhZDljNGVmZDcxMDhjYzYxOTU0ZDcxNjk4OTRhYTU5MGU4OTdkMTkxZWI1ZmQyOTYwYWI2Y2Y3NjE3YmMiLCJpYXQiOjE2NDc1Nzg4OTAuNjg4MzgxLCJuYmYiOjE2NDc1Nzg4OTAuNjg4Mzg3LCJleHAiOjE2NzkxMTQ4OTAuNTgxOTYsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.i1MR0ZvX28hvN_10hMTvB2CTh-O2URFN0DViks3pVCPHd--uqLsoZJb02b3E4lqvUUlqABGOqeHUOmRLovSK2VPtibPy0kuOotI7XDeFH2qZ0Qc1K1s6UOWxsdFlRGGlT6dpgjADfnjq_TRuL2OU1my8WTlwEK12S-YvmgRvUY7NCeaycTHAfsjGCECRdPexYjlDKclK6ahX7-w93g5KqblrvoqzorOWPOsx-wnjBDVOvM2b7xmjeBf9hZmL2GaN6SeCoi9yVrrPHb8wWztWwtDxyabOo-EH6YfFAkWLot5jvefLcB-XHvAVXmkqVxHkAMxV825SOSV3IG6ozL8EPZVjxxoERas5Ntb3xLhgveeFGXxfUifJ--y0g_DPEdKz_Ajvv8wNKU3PTfNYHEPKf3pQ6doJZNBUFy0V2JTLKh-iDEmPEiVU2N9tXQhxPSIjVokFtrv9DjiGkvfNidUjMIOh_RLgUJ4r6xBL3De4caMrTC9Pd8xCaaFiRGZCeyRDDq2k2Ov9IS_z-qLnl2s5ObkgDtIYceEAb8WhmJ5jOGb02kkmbq1dJYecuC1MjedaEnxRhJyR_lGsL_DRh-ym-4PoTzCpUokpXYVLaTWnFLRP1aDnZiJEfJnKLDtxy6rluyrUmAZlrg0aTDXy1zsrpbV24SJMp3O-P7qm2UjjaF4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/article/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"article",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "Adinda",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "adinda@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"warning": "This is a duplicate header and will be overridden by the Content-Type header generated by Postman.",
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "adinda@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiOGQ5YTA4NDI4Yjc3ZmQ2OThjZDlhZDljNGVmZDcxMDhjYzYxOTU0ZDcxNjk4OTRhYTU5MGU4OTdkMTkxZWI1ZmQyOTYwYWI2Y2Y3NjE3YmMiLCJpYXQiOjE2NDc1Nzg4OTAuNjg4MzgxLCJuYmYiOjE2NDc1Nzg4OTAuNjg4Mzg3LCJleHAiOjE2NzkxMTQ4OTAuNTgxOTYsInN1YiI6IjIiLCJzY29wZXMiOltdfQ.i1MR0ZvX28hvN_10hMTvB2CTh-O2URFN0DViks3pVCPHd--uqLsoZJb02b3E4lqvUUlqABGOqeHUOmRLovSK2VPtibPy0kuOotI7XDeFH2qZ0Qc1K1s6UOWxsdFlRGGlT6dpgjADfnjq_TRuL2OU1my8WTlwEK12S-YvmgRvUY7NCeaycTHAfsjGCECRdPexYjlDKclK6ahX7-w93g5KqblrvoqzorOWPOsx-wnjBDVOvM2b7xmjeBf9hZmL2GaN6SeCoi9yVrrPHb8wWztWwtDxyabOo-EH6YfFAkWLot5jvefLcB-XHvAVXmkqVxHkAMxV825SOSV3IG6ozL8EPZVjxxoERas5Ntb3xLhgveeFGXxfUifJ--y0g_DPEdKz_Ajvv8wNKU3PTfNYHEPKf3pQ6doJZNBUFy0V2JTLKh-iDEmPEiVU2N9tXQhxPSIjVokFtrv9DjiGkvfNidUjMIOh_RLgUJ4r6xBL3De4caMrTC9Pd8xCaaFiRGZCeyRDDq2k2Ov9IS_z-qLnl2s5ObkgDtIYceEAb8WhmJ5jOGb02kkmbq1dJYecuC1MjedaEnxRhJyR_lGsL_DRh-ym-4PoTzCpUokpXYVLaTWnFLRP1aDnZiJEfJnKLDtxy6rluyrUmAZlrg0aTDXy1zsrpbV24SJMp3O-P7qm2UjjaF4",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNWIxMTE5MjJlOTUwNzMzNDQ2MzM4NDEwOWUxM2M1NDE5ZmQxNWY2NWFlMzQyYTIyNzFiNmNjYjg2ODhmODRlMmU4YjIzMDkyZjNlZjUyZTkiLCJpYXQiOjE2NDczOTQ4NDMuMDkxLCJuYmYiOjE2NDczOTQ4NDMuMDkxMDA0LCJleHAiOjE2Nzg5MzA4NDMuMDUxNzUsInN1YiI6IjEiLCJzY29wZXMiOltdfQ.MbETMyKNyiyAoY7NPT4aFo6NKQQ5KujW_tfUv1lVVm_66fKYwMjkR2gHCvRaUHWPLW5_iaOjYQ9YmMAiPHR1c6N5JKzdDSs0qRXoXRAoKSTng9j1WGVoF-0_9pIImQ7WXtMmq_x_SyCc1WNZ6rSHWSsRik4KPReeQms8h8E6AgNB5wqol_hu87AYNEybFihLJ_xhsCB1Ot6-9qncbpT-Na4hXMxeA-zaqFQuR6-yQHC-Z19-e3j42UPlj465xkntA9F9pYkB4MRyrbdYXDwWMa1tgkKWl1MYP4mZeAEQbJV65BrfPtXl99ZJtnq1Nal9gy-_x71RZjLRci6p2fEW_wmpPYj8tKq9EO_yCTb__qt67Kv1qxTJ_0bYwSlrJu3wLyzdbp7Yw8HkVznQrrlDKHY99rmUEwj33aUuXA8fFfg1NcLf6oK4-uDwB9c_ONzQIZVh3s8IQVkvgjxRkR5_8qydIeYAgCTwv60wLRq3VOQBrki_hGbhVDv4Cbqr0MeHRpVr6gRHYqerLZzB50QChCKYl_ZuPwMnKkBo_qz9QiYCdBu6TmRoGduUIFaEhZe-WTUH6wHxlX_xGqspP4gnq77_P3xtZb4rfrwWHINo3pJHgLHfgrjwX6DAgMdQpIaekoisFXX2mwrCbimzav8nidpczsecF7uQMPEylHkBtMU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
