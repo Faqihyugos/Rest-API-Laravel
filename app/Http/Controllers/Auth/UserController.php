@@ -50,8 +50,11 @@ class UserController extends Controller
         }
 
         return response()->json([
-            'success' => true,
-            'message' => 'Login successfully',
+            'meta' => [
+                'code' => 200,
+                'status' => 'success',
+                'message' => 'Login successfully'
+            ],
             'data' => $user,
             'token' => $user->createToken('authToken')->accessToken
         ]);
