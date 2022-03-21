@@ -15,10 +15,10 @@ class CategoryFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->text(),
+            'name' => $this->faker->name,
             'user_id' => function () {
                 return User::factory()->create()->first('id');
-            },
+            }
         ];
     }
 }

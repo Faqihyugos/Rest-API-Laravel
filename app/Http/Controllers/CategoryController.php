@@ -86,15 +86,12 @@ class CategoryController extends Controller
         }
 
         $category = Category::find($id);
-
-        if (!$category) {
-            return ResponseFormatter::error('Category not found', 404);
+        if(empty($category)) {
+            return;
         }
-
-        $category->update([
-            'name' => $request->name,
-            'user_id' => $request->user_id,
-        ]);
+        $category->name = $request->name;
+        $category->user_id = $request->user_id;
+        $category->save();
 
         return ResponseFormatter::success($category, 'Category updated successfully');
     }
