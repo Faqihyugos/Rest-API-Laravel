@@ -90,3 +90,7 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 ### Run Serve
 
 `php artisan serve`
+
+### Test Feature
+
+`./vendor/bin/phpunit`
