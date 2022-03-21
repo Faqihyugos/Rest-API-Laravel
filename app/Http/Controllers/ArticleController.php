@@ -36,7 +36,7 @@ class ArticleController extends Controller
         $validate = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
             'content' => 'required|string|max:1000',
-            'image' => 'required|image|file|max:2048',
+            'image' => 'required',
             'user_id' => 'required|integer',
             'category_id' => 'required|integer'
         ]);
@@ -48,13 +48,13 @@ class ArticleController extends Controller
         $article = Article::create([
             'title' => $request->title,
             'content' => $request->content,
-            'image' => $request->image->store(
-                'assets/img_article', 'public'
-            ),
+            'image' => $request->image,
+            // 'image' => $request->image->store(
+            //     'assets/img_article', 'public'
+            // ),
             'user_id' => $request->user_id,
             'category_id' => $request->category_id
         ]);
-
         return ResponseFormatter::success($article, 'Article created successfully', 201);
     }
 
@@ -78,7 +78,7 @@ class ArticleController extends Controller
      * @param  \App\Models\Article  $article
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Article $article, $id)
+    public function update(Request $request, $id)
     {
         $validate = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
@@ -93,6 +93,9 @@ class ArticleController extends Controller
         }
 
         $article = Article::find($id);
+        if(empty($article)) {
+            return;
+        }
         $article->title = $request->title;
         $article->content = $request->content;
         $article->image = $request->image;
@@ -112,8 +115,10 @@ class ArticleController extends Controller
     public function destroy($id)
     {
         $article = Article::find($id);
+        if(empty($article)) {
+            return;
+        }
         $article->delete();
-
         return ResponseFormatter::success(null, 'Article deleted successfully');
     }
 }

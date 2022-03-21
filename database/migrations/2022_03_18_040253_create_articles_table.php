@@ -20,8 +20,8 @@ class CreateArticlesTable extends Migration
             $table->string('image');
             $table->timestamps();
 
-            $table->foreignId('user_id')->references('id')->on('users');
-            $table->foreignId('category_id')->references('id')->on('categories');
+            $table->foreignId('user_id')->nullable()->references('id')->on('users');
+            $table->foreignId('category_id')->nullable()->references('id')->on('categories');
         });
     }
 

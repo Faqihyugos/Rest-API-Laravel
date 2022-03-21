@@ -19,9 +19,19 @@ class ArticleFactory extends Factory
         return [
             'title' => $this->faker->title(),
             'content' => $this->faker->text(),
-            'image' => $this->faker->imageUrl(200, 200),
-            'user_id' => $this->faker->unique()->numberBetween(1, User::count()),
-            'category_id' => $this->faker->unique()->numberBetween(1, Category::count())
+            'image' => $this->faker->image(
+                storage_path('app/public/assets/img_article'),
+                $this->faker->numberBetween(100, 500),
+                $this->faker->numberBetween(100, 500),
+                null,
+                false
+            ),
+            'user_id' => function () {
+                return User::factory()->create()->first('id');
+            },
+            'category_id' => function () {
+                return Category::factory()->create()->first('id');
+            }
         ];
     }
 }

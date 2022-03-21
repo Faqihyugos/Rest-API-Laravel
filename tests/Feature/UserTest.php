@@ -11,11 +11,17 @@ use App\Models\User;
 class UserTest extends TestCase
 {
     use WithFaker,RefreshDatabase;
-    
+
+    public function setUp() :void
+    {
+        parent::setUp();
+        $this->artisan('passport:install');
+    }
+
     public function test_create_user()
     {
         $value =   [
-            'name' => 'Faqih ahmad',
+            'name' => 'Faqihyugos',
             'email' => 'faqi@gmail.com',
             'password' => '12345678',
             'password_confirmation' => '12345678'
@@ -39,12 +45,12 @@ class UserTest extends TestCase
 
     public function test_login_user()
     {
-        Passport::actingAs(
-            User::factory()->create(),
-            ['api']
-        );
-        $response = $this->post('/api/v1/login');
-        // dd($response);
+        $user = User::factory()->create();
+        $value = [
+            'email' => $user->email,
+            'password' => 'password'
+        ];
+        $response = $this->post('/api/v1/login', $value);
         $response->assertStatus(200)->assertjson([
             'meta' => [
                 'code' => 200,
