@@ -38,7 +38,7 @@ class ArticleTest extends TestCase
        $response->assertStatus(201);
    }
 
-   public function test_can_view_all()
+   public function test_can_view_all_article()
    {
     Passport::actingAs(
         User::factory()->create(),
