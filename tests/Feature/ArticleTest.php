@@ -58,7 +58,7 @@ class ArticleTest extends TestCase
        );
         $article = Article::factory()->create();
 
-        $response = $this->get('/api/v1/article/{'.$article->id.'}');
+        $response = $this->get('/api/v1/article/'.$article->id);
         $response->assertStatus(200);
    }
 
@@ -76,7 +76,7 @@ class ArticleTest extends TestCase
               'user_id' => $article->user_id,
               'category_id' => $article->category_id
          ];
-        $response = $this->put('/api/v1/article/{'.$article->id.'}', $value);
+        $response = $this->put('/api/v1/article/'.$article->id, $value);
         $response->assertStatus(200);
    }
 
@@ -87,7 +87,7 @@ class ArticleTest extends TestCase
           ['api']
          );
           $article = Article::factory()->create();
-          $response = $this->delete('/api/v1/article/{'.$article->id.'}');
+          $response = $this->delete('/api/v1/article/'.$article->id);
           $response->assertStatus(200);
     }
 }
